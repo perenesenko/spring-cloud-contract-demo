@@ -32,6 +32,7 @@ dependencyManagement {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
 
+    testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile "org.springframework.cloud:spring-cloud-contract-wiremock:${verifierVersion}"
     testCompile "org.springframework.cloud:spring-cloud-starter-contract-stub-runner:${verifierVersion}"
 }
