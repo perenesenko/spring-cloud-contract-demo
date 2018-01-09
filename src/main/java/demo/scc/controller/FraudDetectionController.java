@@ -19,6 +19,6 @@ public class FraudDetectionController {
     @PutMapping(path = "/fraudcheck", produces = APPLICATION_JSON_UTF8_VALUE, consumes = APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public FraudCheckResponse check(@RequestBody FraudCheckRequest request) {
-        return new FraudCheckResponse(request.getClientId(), request.getLoanAmount().toString());
+        return new FraudCheckResponse("FRAUD", "Amount too high");
     }
 }

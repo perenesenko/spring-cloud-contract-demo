@@ -29,11 +29,6 @@ dependencyManagement {
 }
 
 contracts {
-    // With explicit testMode real HTTP requests are sent
-    // to the application from the specs.
-    // Default is MockMvc for Spring applications.
-    testMode = 'Explicit'
-
     // Base class with setup for starting the Ratpack
     // application for the generated specs.
     baseClassForTests = 'demo.scc.controller.FraudDetectionControllerTest'

@@ -11,7 +11,7 @@ Contract.make {
     }
     """)
         headers {
-            header('Content-Type', 'application/vnd.fraud.v1+json')
+            header('Content-Type', 'application/json;charset=UTF-8')
         }
     }
     response {
@@ -23,7 +23,7 @@ Contract.make {
   }
   """)
         headers {
-            header('Content-Type': 'application/vnd.fraud.v1+json')
+            header('Content-Type': 'application/json;charset=UTF-8')
         }
     }
 }
