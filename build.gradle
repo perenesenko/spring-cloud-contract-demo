@@ -1,0 +1,53 @@
+buildscript {
+    ext {
+        verifierVersion = '1.2.1.RELEASE'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+        classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:${verifierVersion}"
+    }
+}
+
+plugins {
+    id 'io.spring.dependency-management' version '1.0.0.RELEASE'
+}
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'spring-cloud-contract'
+
+repositories {
+    jcenter()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-contract-dependencies:${verifierVersion}"
+    }
+}
+
+contracts {
+    // With explicit testMode real HTTP requests are sent
+    // to the application from the specs.
+    // Default is MockMvc for Spring applications.
+    testMode = 'Explicit'
+
+    // Base class with setup for starting the Ratpack
+    // application for the generated specs.
+    baseClassForTests = 'demo.scc.controller.FraudDetectionControllerTest'
+
+    // Package name for generated specifications.
+    basePackageForTests = 'demo.scc'
+}
+
+dependencies {
+//    compile 'org.springframework:spring-webmvc'
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compileOnly('org.projectlombok:lombok')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
+    testCompile 'junit:junit'
+}
