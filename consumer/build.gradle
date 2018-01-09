@@ -1,0 +1,37 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.9.RELEASE'
+        verifierVersion = '1.2.1.RELEASE'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+    }
+}
+
+plugins {
+    id 'io.spring.dependency-management' version '1.0.0.RELEASE'
+}
+
+apply plugin: 'org.springframework.boot'
+
+
+repositories {
+    jcenter()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-contract-dependencies:${verifierVersion}"
+    }
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    testCompile "org.springframework.cloud:spring-cloud-contract-wiremock:${verifierVersion}"
+    testCompile "org.springframework.cloud:spring-cloud-starter-contract-stub-runner:${verifierVersion}"
+}
