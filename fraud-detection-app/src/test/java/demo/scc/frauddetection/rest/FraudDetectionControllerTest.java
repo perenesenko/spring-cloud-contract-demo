@@ -1,4 +1,4 @@
-package demo.scc.frauddetection.controller;
+package demo.scc.frauddetection.rest;
 
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.Before;

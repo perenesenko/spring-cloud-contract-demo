@@ -1,4 +1,4 @@
-package demo.scc.frauddetection.controller;
+package demo.scc.frauddetection.rest;
 
 import demo.scc.frauddetection.dto.FraudCheckRequest;
 import demo.scc.frauddetection.dto.FraudCheckResponse;
