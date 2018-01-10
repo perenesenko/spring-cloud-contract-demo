@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FraudCheckResponse {
-
-    private String fraudCheckStatus;
+    private FraudStatus fraudCheckStatus;
     private String rejectionReason;
 }

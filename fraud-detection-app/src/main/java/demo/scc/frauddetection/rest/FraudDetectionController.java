@@ -2,6 +2,7 @@ package demo.scc.frauddetection.rest;
 
 import demo.scc.frauddetection.dto.FraudCheckRequest;
 import demo.scc.frauddetection.dto.FraudCheckResponse;
+import demo.scc.frauddetection.dto.FraudStatus;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,6 @@ public class FraudDetectionController {
     @PutMapping(path = "/fraudcheck", produces = APPLICATION_JSON_UTF8_VALUE, consumes = APPLICATION_JSON_UTF8_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public FraudCheckResponse check(@RequestBody FraudCheckRequest request) {
-        return new FraudCheckResponse("FRAUD", "Amount too high");
+        return new FraudCheckResponse(FraudStatus.FRAUD, "Amount too high");
     }
 }

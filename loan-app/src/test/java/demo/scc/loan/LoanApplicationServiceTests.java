@@ -25,6 +25,8 @@ public class LoanApplicationServiceTests {
 
     @Test
     public void testService2Stub() {
+        // todo remove this test
+
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Content-Type", MediaType.APPLICATION_JSON_UTF8_VALUE);
         ResponseEntity<String> response = restTemplate.exchange("http://localhost:8080/fraudcheck", HttpMethod.PUT,
