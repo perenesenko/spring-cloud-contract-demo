@@ -31,10 +31,12 @@ public class LoanControllerTest {
     private MockMvc mockMvc;
 
     private LoanRequest validRequest;
+    private LoanRequest invalidRequest;
 
     @Before
     public void buildRequest() {
         validRequest = new LoanRequest("1234567890", 49999);
+        invalidRequest = new LoanRequest("1234567890", 199999);
     }
 
     @Test
@@ -46,5 +48,16 @@ public class LoanControllerTest {
         mockMvc.perform(req)
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.allowed").value(true));
+    }
+
+    @Test
+    public void requestLoanRejected() throws Exception {
+        RequestBuilder req = MockMvcRequestBuilders.post("/loan-request")
+                .accept(MediaType.APPLICATION_JSON_UTF8)
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .content(JsonUtils.toJsonString(invalidRequest));
+        mockMvc.perform(req)
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.allowed").value(false));
     }
 }
