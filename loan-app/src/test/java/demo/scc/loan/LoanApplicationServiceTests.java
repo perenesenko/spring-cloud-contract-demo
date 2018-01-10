@@ -18,7 +18,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@AutoConfigureStubRunner(ids = {"demo.scc:frauddetection:+:stubs:8080"}, workOffline = true)
+@AutoConfigureStubRunner(ids = {"demo.scc:fraud-detection-app:+:stubs:8080"}, workOffline = true)
 public class LoanApplicationServiceTests {
 
     private RestTemplate restTemplate = new RestTemplate();
