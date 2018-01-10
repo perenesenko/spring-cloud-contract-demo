@@ -4,14 +4,12 @@ Contract.make {
     request {
         method 'PUT'
         url '/fraudcheck'
-        body("""
-    {
-      "clientId":"1234567890",
-      "loanAmount":99999
-    }
-    """)
+        body(
+                clientId: $(anyNumber()),
+                loanAmount: $(consumer(regex('^([5-9]\\d{4}|\\d{6,})$')), producer(50000))
+        )
         headers {
-            header('Content-Type', 'application/json;charset=UTF-8')
+            header('Content-Type', applicationJsonUtf8())
         }
     }
     response {
@@ -23,7 +21,7 @@ Contract.make {
   }
   """)
         headers {
-            header('Content-Type': 'application/json;charset=UTF-8')
+            header('Content-Type': applicationJsonUtf8())
         }
     }
 }

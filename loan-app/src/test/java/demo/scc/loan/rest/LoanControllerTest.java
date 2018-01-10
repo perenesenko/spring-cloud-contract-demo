@@ -1,5 +1,7 @@
 package demo.scc.loan.rest;
 
+import demo.scc.loan.dto.LoanRequest;
+import demo.scc.loan.utils.JsonUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,12 +30,11 @@ public class LoanControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private String requestJson;
+    private LoanRequest validRequest;
 
     @Before
     public void buildRequest() {
-        requestJson = "{'clientId':'1234567890', 'loanAmount': 99999}"
-                .replaceAll("'", "\"");
+        validRequest = new LoanRequest("1234567890", 49999);
     }
 
     @Test
@@ -41,9 +42,9 @@ public class LoanControllerTest {
         RequestBuilder req = MockMvcRequestBuilders.post("/loan-request")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .content(requestJson);
+                .content(JsonUtils.toJsonString(validRequest));
         mockMvc.perform(req)
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.allowed").value(false));
+                .andExpect(jsonPath("$.allowed").value(true));
     }
 }
