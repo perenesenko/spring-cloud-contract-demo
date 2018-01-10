@@ -2,7 +2,6 @@ package demo.scc.loan.rest;
 
 import demo.scc.loan.dto.LoanRequest;
 import demo.scc.loan.utils.JsonUtils;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,17 +29,10 @@ public class LoanControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private LoanRequest validRequest;
-    private LoanRequest invalidRequest;
-
-    @Before
-    public void buildRequest() {
-        validRequest = new LoanRequest("1234567890", 49999);
-        invalidRequest = new LoanRequest("1234567890", 199999);
-    }
-
     @Test
     public void requestLoan() throws Exception {
+        LoanRequest validRequest = new LoanRequest("1234567890", 49999);
+
         RequestBuilder req = MockMvcRequestBuilders.post("/loan-request")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -52,6 +44,8 @@ public class LoanControllerTest {
 
     @Test
     public void requestLoanRejected() throws Exception {
+        LoanRequest invalidRequest = new LoanRequest("1234567890", 199999);
+
         RequestBuilder req = MockMvcRequestBuilders.post("/loan-request")
                 .accept(MediaType.APPLICATION_JSON_UTF8)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
