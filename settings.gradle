@@ -2,3 +2,4 @@ rootProject.name = 'springcloudcontract'
 
 include 'loan-app'
 include 'fraud-detection-app'
+include 'fraud-detection-dto'

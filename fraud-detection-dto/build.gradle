@@ -1,0 +1,26 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.9.RELEASE'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id 'io.spring.dependency-management' version '1.0.0.RELEASE'
+}
+
+apply plugin: 'org.springframework.boot'
+
+repositories {
+    // todo jcenter?
+    jcenter()
+}
+
+dependencies {
+    compileOnly('org.projectlombok:lombok')
+}
