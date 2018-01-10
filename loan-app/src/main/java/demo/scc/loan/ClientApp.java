@@ -1,4 +1,4 @@
-package demo.scc.service1;
+package demo.scc.loan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

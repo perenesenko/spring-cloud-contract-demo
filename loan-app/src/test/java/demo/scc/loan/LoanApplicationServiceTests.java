@@ -1,4 +1,4 @@
-package demo.scc.service1;
+package demo.scc.loan;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
