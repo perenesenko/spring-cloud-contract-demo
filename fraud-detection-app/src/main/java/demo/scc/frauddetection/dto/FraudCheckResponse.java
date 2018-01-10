@@ -1,4 +1,4 @@
-package demo.scc.service2.dto;
+package demo.scc.frauddetection.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FraudCheckRequest {
+public class FraudCheckResponse {
 
-    private String clientId;
-    private Integer loanAmount;
+    private String fraudCheckStatus;
+    private String rejectionReason;
 }

@@ -33,10 +33,10 @@ dependencyManagement {
 contracts {
     // Base class with setup for starting the Ratpack
     // application for the generated specs.
-    baseClassForTests = 'demo.scc.service2.controller.FraudDetectionControllerTest'
+    baseClassForTests = 'demo.scc.frauddetection.controller.FraudDetectionControllerTest'
 
     // Package name for generated specifications.
-    basePackageForTests = 'demo.scc.service2'
+    basePackageForTests = 'demo.scc.frauddetection'
 }
 
 dependencies {

@@ -1,7 +1,7 @@
-package demo.scc.service2.controller;
+package demo.scc.frauddetection.controller;
 
-import demo.scc.service2.dto.FraudCheckRequest;
-import demo.scc.service2.dto.FraudCheckResponse;
+import demo.scc.frauddetection.dto.FraudCheckRequest;
+import demo.scc.frauddetection.dto.FraudCheckResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
