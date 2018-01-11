@@ -4,7 +4,7 @@
 
 # How to use
 
-#### build and test _Producer app
+#### build and test _Producer_ app
 
 To build contract and launch unit tests for the producer app
 
