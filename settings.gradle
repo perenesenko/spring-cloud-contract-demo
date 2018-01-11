@@ -1,4 +1,4 @@
-rootProject.name = 'springcloudcontract'
+rootProject.name = 'spring-cloud-contract-demo'
 
 include 'loan-app'
 include 'fraud-detection-app'
