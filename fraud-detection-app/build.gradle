@@ -4,7 +4,7 @@ buildscript {
         verifierVersion = '1.2.1.RELEASE'
     }
     repositories {
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -12,16 +12,12 @@ buildscript {
     }
 }
 
-plugins {
-    id 'io.spring.dependency-management' version '1.0.0.RELEASE'
-}
-
 apply plugin: 'org.springframework.boot'
 apply plugin: 'spring-cloud-contract'
 apply plugin: 'maven-publish'
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencyManagement {

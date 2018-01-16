@@ -3,7 +3,7 @@ buildscript {
         springBootVersion = '1.5.9.RELEASE'
     }
     repositories {
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -17,10 +17,10 @@ plugins {
 apply plugin: 'org.springframework.boot'
 
 repositories {
-    // todo jcenter?
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     compileOnly('org.projectlombok:lombok')
+    testCompile('junit:junit')
 }
